@@ -1,3 +1,12 @@
-name = "erudition-server"
+name = "server"
 main = "src/index.ts"
 compatibility_date = "2024-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "erudition"
+database_id = "819faf83-119d-4f2b-82ef-8bec7b056dda"
+migrations_dir = "migrations"
+
+[vars]
+CF_TEAM_DOMAIN = "https://erudition.cloudflareaccess.com"
