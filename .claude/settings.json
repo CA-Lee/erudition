@@ -1,7 +1,4 @@
 {
-  "sandbox": {
-    "enabled": true
-  },
   "permissions": {
     "allow": [
       "Read(/Users/calee/side-projects/erudition/**)",
@@ -11,5 +8,18 @@
       "Read",
       "Bash"
     ]
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true
   }
 }
