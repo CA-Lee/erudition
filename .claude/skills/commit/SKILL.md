@@ -14,12 +14,13 @@ Run these before doing anything:
 
 ## Phase 1 — Prepare (do immediately, no prompting)
 
-1. Stage the relevant files with `git add`
+1. Stage the relevant files with `git add` — **do this before asking the user anything**
 2. Draft a commit message following Conventional Commits format (see below)
 3. Present to the user:
    - **Files to be committed** (from `git status` after staging)
    - **Proposed commit message** (exact text)
 4. Ask: **"Proceed with this commit? (yes / edit / cancel)"**
+   - The user will check the staged files in their IDE or via `git status` to verify before confirming
 
 ## Phase 2 — Execute (after confirmation)
 
