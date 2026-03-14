@@ -11,7 +11,8 @@ const email = ref('')
 onMounted(async () => {
   const res = await apiFetch('/me')
   if (res.status === 401) {
-    window.location.href = import.meta.env.VITE_APP_URL
+    const ssoUrl = `${import.meta.env.VITE_API_URL}/auth/login?redirect=${encodeURIComponent(window.location.href)}`
+    window.location.href = ssoUrl
     return
   }
   const { email: e } = await res.json()
