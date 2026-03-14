@@ -8,10 +8,12 @@
       "Bash(git branch*)",
       "Bash(git log*)",
       "Bash(git add*)",
+      "Bash(echo *)",
       "WebSearch",
       "Edit(/workspaces/erudition/**)",
       "Write(/workspaces/erudition/**)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:developers.cloudflare.com)"
     ]
   },
   "enabledPlugins": {

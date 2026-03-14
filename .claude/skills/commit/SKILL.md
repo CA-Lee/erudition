@@ -12,14 +12,29 @@ Run these before doing anything:
 - `git branch --show-current` — current branch
 - `git log --oneline -10` — recent commits (for message style reference)
 
+## Atomic Commits
+
+Each commit should represent **one logical change** — reviewable, revertable, and understandable on its own.
+
+**Signs you should split into multiple commits:**
+- The diff touches unrelated files or concerns (e.g. a bug fix + a refactor)
+- The commit message needs "and" to describe what changed
+- Different parts of the diff would need to be reverted independently
+
+**How to split:** use `git add -p` (patch mode) or stage files selectively to isolate each logical unit before committing.
+
+**When multiple files belong together:** it's fine to include several files in one commit if they're part of the same logical change (e.g. a feature + its test + its migration).
+
 ## Phase 1 — Prepare (do immediately, no prompting)
 
-1. Stage the relevant files with `git add` — **do this before asking the user anything**
-2. Draft a commit message following Conventional Commits format (see below)
-3. Present to the user:
+1. **Assess atomicity** — review `git diff HEAD` and group changes into logical units. If multiple independent units exist, pick the first logical unit to commit now and leave the rest unstaged.
+2. Stage only the files/hunks for this commit's scope — use `git add <specific-files>` or `git add -p` for partial staging. Do **not** stage files belonging to other logical units.
+3. Draft a commit message following Conventional Commits format (see below)
+4. Present to the user:
    - **Files to be committed** (from `git status` after staging)
    - **Proposed commit message** (exact text)
-4. Ask: **"Proceed with this commit? (yes / edit / cancel)"**
+   - **If changes were split:** note what was left unstaged and why
+5. Ask: **"Proceed with this commit? (yes / edit / cancel)"**
    - The user will check the staged files in their IDE or via `git status` to verify before confirming
 
 ## Phase 2 — Execute (after confirmation)
