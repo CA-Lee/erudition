@@ -2,12 +2,8 @@ import { createRemoteJWKSet, jwtVerify } from 'jose'
 import type { MiddlewareHandler } from 'hono'
 import { onboard, type User } from '../onboarding'
 
-export type Env = {
-  Bindings: { DB: D1Database; CF_TEAM_DOMAIN: string }
-  Variables: { user: User }
-}
 
-export const cfAccess: MiddlewareHandler<Env> = async (c, next) => {
+export const cfAccess: MiddlewareHandler<{ Bindings: Env; Variables: { user: User } }> = async (c, next) => {
   const jwt = c.req.header('Cf-Access-Jwt-Assertion')
   if (!jwt) return c.json({ error: 'Unauthorized' }, 401)
 

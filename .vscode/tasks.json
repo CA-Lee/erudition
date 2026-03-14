@@ -42,9 +42,19 @@
     },
     {
       "label": "Dev Suite",
-      "dependsOn": ["Start Server", "Start Client", "Start Tunnel"],
+      "dependsOn": [
+        "Start Server",
+        "Start Client",
+        "Start Tunnel"
+      ],
       "dependsOrder": "parallel",
       "problemMatcher": []
-    }
+    },
+    {
+      "label": "Migrate Local DB",
+      "type": "shell",
+      "command": "pnpm wrangler d1 migrations apply erudition --local",
+      "problemMatcher": []
+    },
   ]
 }
