@@ -30,8 +30,19 @@
       "problemMatcher": []
     },
     {
+      "label": "Start Tunnel",
+      "type": "shell",
+      "command": "bash -c 'set -a; source ${workspaceFolder}/.env.local; set +a; cloudflared tunnel run --token $CLOUDFLARED_TOKEN'",
+      "presentation": {
+        "panel": "dedicated",
+        "group": "dev"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
       "label": "Dev Suite",
-      "dependsOn": ["Start Server", "Start Client"],
+      "dependsOn": ["Start Server", "Start Client", "Start Tunnel"],
       "dependsOrder": "parallel",
       "problemMatcher": []
     }
