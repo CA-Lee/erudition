@@ -8,3 +8,7 @@
 
 - 可以用 `say -v Tingting "<message>"` 朗讀訊息給使用者
 - 長時間任務完成後，或使用者明確要求時，執行語音通知
+
+# Product & Technical Spec
+
+參考 [spec.md](./spec.md)
